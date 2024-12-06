@@ -5,13 +5,11 @@ import (
 )
 
 // create an empty set
-
 func createSet() map[int]struct{} {
 	return make(map[int]struct{})
 }
 
 // adding an element to the set
-
 func addElement(set map[int]struct{}, element int) {
 	set[element] = struct{}{}
 }
@@ -41,8 +39,7 @@ func main() {
 	var del int
 	fmt.Println("Number to be deleted")
 	fmt.Scanln(&del)
-
-	deleteElement(set, del)
+        deleteElement(set, del)
 	fmt.Printf("Set after deleting %d:%d", del, set)
 
 }
