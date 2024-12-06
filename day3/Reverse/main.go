@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func reverse(a []int) {
-	var start int = 0
-	var stop int = len(a) - 1
+	var start  = 0
+	var stop  = len(a) - 1
 
 	for start < stop {
 		a[start], a[stop] = a[stop], a[start]
