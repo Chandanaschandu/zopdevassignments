@@ -7,7 +7,7 @@ func SliceToMap(slice []int) map[int]int {
 	result := make(map[int]int)
 
 	for i, value := range slice {
-		result[i] = value
+		result[value] = i
 	}
 
 	return result
