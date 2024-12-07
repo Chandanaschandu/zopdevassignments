@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f05eec25-89e9-4c40-b6db-33251601ceb0" name="Changes" comment="Code for stack" />
+    <list default="true" id="f05eec25-89e9-4c40-b6db-33251601ceb0" name="Changes" comment="Code for stack">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +31,7 @@
         <entry key="$PROJECT_DIR$/day4" value="day4" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/day4" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
@@ -53,56 +55,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;Go Build.go build github.com/ChandanaSchandu/training/day1.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/Reverse.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/StructureCreation.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/countOccurence.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/day4/calculatorProgram.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/day4/stack.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/mapToSet.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/sliceToMap.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/sumValuesByKeys.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training (1).executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day1.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day2.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day2/Linkedlist.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day2/prime_number.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day2/sum.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day21/Linkedlist.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day21/Structure creation.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day22.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day22/Linkedlist.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day22/day22.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build github.com/Chandanaschandu/training/day3/sliceToMap.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build tranining/day1.executor&quot;: &quot;Run&quot;,
-    &quot;Go Build.go build tranining/day3/sliceToMap.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;stack&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/raramuri&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/raramuri/go/src/tranining/main.go&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "Go Build.go build github.com/ChandanaSchandu/training/day1.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/DAY4a/calculatorProgram.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/DAY4a/stack.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/Reverse.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/StructureCreation.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/countOccurence.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/day4/calculatorProgram.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/day4/stack.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/mapToSet.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/sliceToMap.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/sumValuesByKeys.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training (1).executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day1.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day2.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day2/Linkedlist.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day2/prime_number.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day2/sum.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day21/Linkedlist.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day21/Structure creation.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day22.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day22/Linkedlist.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day22/day22.executor": "Run",
+    "Go Build.go build github.com/Chandanaschandu/training/day3/sliceToMap.executor": "Run",
+    "Go Build.go build tranining/day1.executor": "Run",
+    "Go Build.go build tranining/day3/sliceToMap.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "git-widget-placeholder": "DAY4a",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/Users/raramuri",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/raramuri/go/src/tranining/main.go",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DAY4a" />
       <recent name="$PROJECT_DIR$/day4/TicTacToe" />
       <recent name="$PROJECT_DIR$/day4/calculatorProgram/calculator" />
       <recent name="$PROJECT_DIR$/day4/calculatorProgram" />
       <recent name="$PROJECT_DIR$/day4/stack" />
-      <recent name="$PROJECT_DIR$/day3/sliceToMap" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -112,14 +116,23 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build github.com/Chandanaschandu/day4/calculatorProgram">
-    <configuration name="go build github.com/Chandanaschandu/Reverse" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build github.com/Chandanaschandu/DAY4a/stack">
+    <configuration name="go build github.com/Chandanaschandu/DAY4a/calculatorProgram" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="tranining" />
-      <working_directory value="$PROJECT_DIR$/day3/Reverse" />
+      <working_directory value="$PROJECT_DIR$/DAY4a/calculatorProgram" />
       <kind value="PACKAGE" />
-      <package value="github.com/Chandanaschandu/Reverse" />
+      <package value="github.com/Chandanaschandu/DAY4a/calculatorProgram" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/day3/Reverse/main.go" />
+      <filePath value="$PROJECT_DIR$/DAY4a/calculatorProgram/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/Chandanaschandu/DAY4a/stack" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="tranining" />
+      <working_directory value="$PROJECT_DIR$/DAY4a/stack" />
+      <kind value="PACKAGE" />
+      <package value="github.com/Chandanaschandu/DAY4a/stack" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/DAY4a/stack/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build github.com/Chandanaschandu/day4/calculatorProgram" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -149,29 +162,20 @@
       <filePath value="$PROJECT_DIR$/day3/mapToSet/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build github.com/Chandanaschandu/training/day3/sliceToMap" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="tranining" />
-      <working_directory value="$PROJECT_DIR$/day3/sliceToMap" />
-      <kind value="PACKAGE" />
-      <package value="github.com/Chandanaschandu/training/day3/sliceToMap" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/day3/sliceToMap/main.go" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Go Build.go build github.com/Chandanaschandu/Reverse" />
+      <item itemvalue="Go Build.go build github.com/Chandanaschandu/DAY4a/calculatorProgram" />
+      <item itemvalue="Go Build.go build github.com/Chandanaschandu/DAY4a/stack" />
       <item itemvalue="Go Build.go build github.com/Chandanaschandu/day4/calculatorProgram" />
       <item itemvalue="Go Build.go build github.com/Chandanaschandu/day4/stack" />
       <item itemvalue="Go Build.go build github.com/Chandanaschandu/mapToSet" />
-      <item itemvalue="Go Build.go build github.com/Chandanaschandu/training/day3/sliceToMap" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/Chandanaschandu/DAY4a/stack" />
+        <item itemvalue="Go Build.go build github.com/Chandanaschandu/DAY4a/calculatorProgram" />
         <item itemvalue="Go Build.go build github.com/Chandanaschandu/day4/calculatorProgram" />
         <item itemvalue="Go Build.go build github.com/Chandanaschandu/day4/stack" />
         <item itemvalue="Go Build.go build github.com/Chandanaschandu/mapToSet" />
-        <item itemvalue="Go Build.go build github.com/Chandanaschandu/Reverse" />
-        <item itemvalue="Go Build.go build github.com/Chandanaschandu/training/day3/sliceToMap" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +226,7 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/day4/stack/main.go</url>
+          <url>file://$PROJECT_DIR$/DAY4a/stack/main.go</url>
           <line>20</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
