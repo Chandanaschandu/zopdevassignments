@@ -14,7 +14,7 @@ func SliceToMap(slice []int) map[int]int {
 }
 
 func main() {
-	// Example usage
+
 	s := []int{1, 2, 3, 4}
 
 	result := SliceToMap(s)
