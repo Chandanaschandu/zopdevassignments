@@ -46,10 +46,10 @@ func main() {
 	i := doubles(4) //integer double
 	fmt.Printf("Double the integer %d\n", i)
 
-	var x string = greet("Hello world") //print input string
+	x := greet("Hello world") //print input string
 	fmt.Printf("Input string %s\n", x)
 
-	var pc float32 = periCircle(10) //perimeter of circle
+	pc := periCircle(10) //perimeter of circle
 	fmt.Printf("perimeter of circle %g\n", pc)
 
 	var ps int = periSquare(4) //perimeter of square

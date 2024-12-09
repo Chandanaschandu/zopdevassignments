@@ -27,8 +27,7 @@ func main() {
 	fmt.Println("Stack after pushing elements", stack)
 
 	pop()
-	pop()
-
+	
 	fmt.Println("Stack after popping elements", stack)
 
 }
