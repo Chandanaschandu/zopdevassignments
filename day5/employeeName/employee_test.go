@@ -1,6 +1,9 @@
 package employeeName
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 func TestGreetEmployee(t *testing.T) {
 	employee := Employee{
@@ -24,5 +27,28 @@ func BenchmarkGreetEmployee(b *testing.B) {
 	//expected := "Hello Chandana S"
 	for range b.N {
 		GreetEmployee(employee)
+	}
+}
+func TestCalculateAge(t *testing.T) {
+
+	dob := time.Date(2002, 11, 25, 0, 0, 0, 0, time.UTC)
+	currentDate := time.Date(2024, 12, 11, 0, 0, 0, 0, time.UTC)
+	expectedAge := 22
+
+	age, err := CalculateAge(dob, currentDate)
+	if err != nil {
+		t.Errorf("CalculateAge() returned an error: %v", err)
+	}
+	if age != expectedAge {
+		t.Errorf("CalculateAge() = %d; want %d", age, expectedAge)
+	}
+}
+func BenchmarkCalculateAge(b *testing.B) {
+	dob := time.Date(1990, 5, 15, 0, 0, 0, 0, time.UTC)
+	currentDate := time.Date(2024, 12, 11, 0, 0, 0, 0, time.UTC)
+
+	// Run the benchmark loop.
+	for range b.N {
+		CalculateAge(dob, currentDate)
 	}
 }
