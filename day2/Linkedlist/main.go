@@ -34,28 +34,6 @@ func AddNodeAtEnd(head *Node, data int) *Node {
 	return head
 }
 
-/*func remove_node(head *Node, value int) *Node {
-	if head == nil {
-		return nil
-	}
-
-	if head.value == value {
-		return head.next
-	}
-
-	current := head //remove the elements from the list
-	for current.next != nil {
-		if current.next.value == value {
-			current.next = current.next.next
-			break
-		}
-		current = current.next
-	}
-
-	return head
-}
-*/
-
 func DeleteLastNode(head *Node) *Node {
 	if head == nil {
 		return head
