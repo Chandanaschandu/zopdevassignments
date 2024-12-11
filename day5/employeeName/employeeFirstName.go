@@ -14,6 +14,7 @@ type Employee struct {
 func GreetEmployee(e Employee) string {
 	return fmt.Sprintf("Hello %s %s", e.FirstName, e.LastName)
 }
+
 func CalculateAge(dob time.Time, currentDate time.Time) (int, error) {
 	if dob.After(currentDate) {
 		return 0, fmt.Errorf("birth date cannot be in the future")
