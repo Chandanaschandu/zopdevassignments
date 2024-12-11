@@ -1,6 +1,8 @@
-package Solutions
+package areaPerimeterRectangle
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestAreaRectangle(t *testing.T) {
 	tests := []struct {

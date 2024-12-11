@@ -67,10 +67,3 @@ func main() {
 	fmt.Println(res)
 
 }
-
-// go run main.go directly downloads,builds and run
-//
-//go build
-//touch main.go
-
-// /* go documentation, go specs  */
