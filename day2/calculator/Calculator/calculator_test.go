@@ -1,24 +1,46 @@
 package Calculator
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestCalcultor(t *testing.T) {
 	tests := []struct {
-		a float64
-		b float64
+		a        float64
+		b        float64
 		operator string
-		output      float64
+		output   float64
 	}{
 		{5, 4, "+", 9},
-		{5,4,"-",1},
-		{5,4,"*",20},
-		{5,4,"/",1.25}
+		{5, 4, "-", 1},
+		{5, 4, "*", 20},
+		{5, 4, "/", 1.25},
 	}
-	for _,test:=range tests{
-		res:=Calculator(test.a,test.b,test.operator)
-		if res!=test.output{
-			t.Errorf("test failed calculator(%f,%f,%s)=%f; %f",test.a,test.b,test.operator,res,test.output)
+	for _, test := range tests {
+		res := Calculator(test.a, test.b, test.operator)
+		if res != test.output {
+			t.Errorf("test failed calculator(%f,%f,%s)=%f; %f", test.a, test.b, test.operator, res, test.output)
 
+		}
+
+	}
+
+}
+func BenchmarkRandInt(b *testing.B) {
+	tests := []struct {
+		a        float64
+		b        float64
+		operator string
+		output   float64
+	}{
+		{5, 4, "+", 9},
+		{5, 4, "-", 1},
+		{5, 4, "*", 20},
+		{5, 4, "/", 1.25},
+	}
+	for range b.N {
+		for _, test := range tests {
+			Calculator(test.a, test.b, test.operator)
 		}
 	}
 }
