@@ -32,8 +32,8 @@ func BenchmarkGreetEmployee(b *testing.B) {
 func TestCalculateAge(t *testing.T) {
 	// Create an employee instance for testing
 	employee := Employee{
-		FirstName: "John",
-		LastName:  "Doe",
+		FirstName: "Chandana",
+		LastName:  "S",
 		DOB:       time.Date(2000, time.June, 15, 0, 0, 0, 0, time.UTC), // DOB for testing
 	}
 
@@ -48,8 +48,8 @@ func TestCalculateAge(t *testing.T) {
 func BenchmarkCalculateAge(b *testing.B) {
 
 	employee := Employee{
-		FirstName: "John",
-		LastName:  "Doe",
+		FirstName: "Chandana",
+		LastName:  "S",
 		DOB:       time.Date(2000, time.June, 15, 0, 0, 0, 0, time.UTC),
 	}
 	for range b.N {
