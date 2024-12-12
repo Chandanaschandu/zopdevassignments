@@ -15,7 +15,7 @@ func TestGreet(t *testing.T) {
 	for _, test := range tests {
 		res := Greet(test.input)
 		if res != test.output {
-			t.Errorf("The %s is %s and output is %s", test.desc, test.input, test.output)
+			t.Errorf("The your output is %s and expected output is %s", res, test.output)
 		}
 	}
 
