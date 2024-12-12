@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type I interface {
+type Calculaotor interface {
 	Add()
 	Sub()
 	Mul()
@@ -27,7 +27,7 @@ func (t T) Div() {
 }
 
 func main() {
-	var i I = T{2, 3}
+	var i Calculaotor = T{2, 3}
 	i.Add()
 	i.Sub()
 	i.Mul()
