@@ -8,26 +8,26 @@ type Calculaotor interface {
 	Mul()
 	Div()
 }
-type T struct {
-	a int
-	b int
+type Mystruct struct {
+	num1 int
+	num2 int
 }
 
-func (t T) Add() {
-	fmt.Println("Addition of two numbers", t.a+t.b)
+func (t Mystruct) Add() {
+	fmt.Println("Addition of two numbers", t.num1+t.num2)
 }
-func (t T) Sub() {
-	fmt.Println("Subtraction of two numbers", t.a-t.b)
+func (t Mystruct) Sub() {
+	fmt.Println("Subtraction of two numbers", t.num1-t.num2)
 }
-func (t T) Mul() {
-	fmt.Println("Multiplication of two numbers", t.a*t.b)
+func (t Mystruct) Mul() {
+	fmt.Println("Multiplication of two numbers", t.num1*t.num2)
 }
-func (t T) Div() {
-	fmt.Println("Division of Two numbers", t.a/t.b)
+func (t Mystruct) Div() {
+	fmt.Println("Division of Two numbers", t.num1/t.num2)
 }
 
 func main() {
-	var i Calculaotor = T{2, 3}
+	var i Calculaotor = Mystruct{2, 3}
 	i.Add()
 	i.Sub()
 	i.Mul()
