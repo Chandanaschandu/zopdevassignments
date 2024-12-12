@@ -68,3 +68,9 @@ func BenchmarkDiv(b *testing.B) {
 		c.div()
 	}
 }
+func BenchmarkDivByZero(b *testing.B) {
+	c := Calculator{a: 7, b: 0}
+	for range b.N {
+		c.div()
+	}
+}
