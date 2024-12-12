@@ -4,38 +4,42 @@ import (
 	"fmt"
 )
 
-// 1.double the integer
+// 1.doubles the integer
 func doubles(i int) int {
 	return i * 2
 }
 
-// 2.print the input string
+// 2.greet the input string
 func greet(x string) string {
 	return x
 
 }
 
-// perimeter of circle
+// periCircle of circle
 func periCircle(r float32) float32 {
 	const PI = 3.14
 	return 2 * PI * r
 }
 
-//perimeter of squares
+//periSqaure of squares
 
 func periSquare(a int) int {
 	return 4 * a
 
 }
+
+// cubeVolume
 func cubeVolume(l, b, h int) int {
 	return l * b * h
 
 }
 
+// periRectangle
 func periRectangle(l, b int) int {
 	return 2 * (l + b)
 }
 
+// volumeSphere
 func volumeSphere(ra float32) float32 {
 	const PI = 3.14
 	return 4 / 3 * (PI * ra * ra * ra)
