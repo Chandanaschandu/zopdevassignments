@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type Calculaotor interface {
+type Calculator interface {
 	Add()
 	Sub()
 	Mul()
@@ -27,7 +27,7 @@ func (t Mystruct) Div() {
 }
 
 func main() {
-	var i Calculaotor = Mystruct{2, 3}
+	var i Calculator = Mystruct{2, 3}
 	i.Add()
 	i.Sub()
 	i.Mul()
