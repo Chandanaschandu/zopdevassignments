@@ -5,72 +5,178 @@ import (
 )
 
 func TestAdd(t *testing.T) {
-	c := Calculator{a: 3, b: 2}
-	result := c.add()
-	expected := 5.0
-	if result != expected {
-		t.Errorf("Expected %.2f, but got %.2f", expected, result)
+	tests := []struct {
+		a, b     float64
+		expected float64
+	}{
+		{3, 2, 5.0},
+		{-1, -1, -2.0},
+	}
+
+	for _, tt := range tests {
+		c := Calculator{a: tt.a, b: tt.b}
+		result := c.add()
+		if result != tt.expected {
+			t.Errorf("Expected %.2f, but got %.2f", tt.expected, result)
+		}
 	}
 }
+
 func TestSub(t *testing.T) {
-	c := Calculator{a: 5, b: 3}
-	result := c.sub()
-	expected := 2.0
-	if result != expected {
-		t.Errorf("Expected %.2f, but got %.2f", expected, result)
+	tests := []struct {
+		a, b     float64
+		expected float64
+	}{
+		{5, 3, 2.0},
+		{10, 20, -10.0},
+		{-5, -3, -2.0},
+	}
+
+	for _, tt := range tests {
+		c := Calculator{a: tt.a, b: tt.b}
+		result := c.sub()
+		if result != tt.expected {
+			t.Errorf("Expected %.2f, but got %.2f", tt.expected, result)
+		}
 	}
 }
+
 func TestMul(t *testing.T) {
-	c := Calculator{a: 4, b: 3}
-	result := c.mul()
-	expected := 12.0
-	if result != expected {
-		t.Errorf("Expected %.2f, but got %.2f", expected, result)
+	tests := []struct {
+		a, b     float64
+		expected float64
+	}{
+		{4, 3, 12.0},
+		{0, 5, 0.0},
+		{-4, 3, -12.0},
+	}
+
+	for _, tt := range tests {
+
+		c := Calculator{a: tt.a, b: tt.b}
+		result := c.mul()
+		if result != tt.expected {
+			t.Errorf("Expected %.2f, but got %.2f", tt.expected, result)
+		}
 	}
 }
+
 func TestDiv(t *testing.T) {
-	c := Calculator{a: 6, b: 2}
-	result := c.div()
-	expected := 3.0
-	if result != expected {
-		t.Errorf("Expected %.2f, but got %.2f", expected, result)
+	tests := []struct {
+		a, b       float64
+		expected   float64
+		shouldFail bool
+	}{
+		{6, 2, 3.0, false},
+		{6, 0, 0.0, true},
+	}
+
+	for _, tt := range tests {
+
+		c := Calculator{a: tt.a, b: tt.b}
+
+		var result float64
+		if tt.b == 0 {
+
+			if tt.shouldFail {
+
+				result = 0.0
+			}
+		} else {
+
+			result = c.div()
+		}
+
+		if tt.shouldFail && tt.b != 0 {
+			t.Errorf("Expected division by zero, but the division was successful")
+		}
+
+		if !tt.shouldFail && result != tt.expected {
+			t.Errorf("Expected %.2f, but got %.2f", tt.expected, result)
+		}
+
 	}
 }
-func TestDivByZero(t *testing.T) {
-	c := Calculator{a: 6, b: 0}
-	result := c.div()
-	expected := 0.0
-	if result != expected {
-		t.Errorf("Expected %.2f, but got %.2f", expected, result)
-	}
-}
+
 func BenchmarkAdd(b *testing.B) {
-	c := Calculator{a: 3, b: 2}
+	tests := []struct {
+		a, b     float64
+		expected float64
+	}{
+		{3, 2, 5.0},
+		{-1, -1, -2.0},
+	}
+
 	for range b.N {
-		c.add()
+		for _, tt := range tests {
+			c := Calculator{a: tt.a, b: tt.b}
+			c.add()
+
+		}
 	}
 }
+
 func BenchmarkSub(b *testing.B) {
-	c := Calculator{a: 3, b: 2}
+	tests := []struct {
+		a, b     float64
+		expected float64
+	}{
+		{5, 3, 2.0},
+		{10, 20, -10.0},
+		{-5, -3, -2.0},
+	}
 	for range b.N {
-		c.sub()
+		for _, tt := range tests {
+			c := Calculator{a: tt.a, b: tt.b}
+			c.sub()
+		}
+
 	}
 }
+
 func BenchmarkMul(b *testing.B) {
-	c := Calculator{a: 3, b: 2}
+	tests := []struct {
+		a, b     float64
+		expected float64
+	}{
+		{4, 3, 12.0},
+		{0, 5, 0.0},
+		{-4, 3, -12.0},
+	}
 	for range b.N {
-		c.mul()
+		for _, tt := range tests {
+			c := Calculator{a: tt.a, b: tt.b}
+			c.mul()
+		}
+
 	}
 }
+
 func BenchmarkDiv(b *testing.B) {
-	c := Calculator{a: 3, b: 2}
-	for range b.N {
-		c.div()
+	tests := []struct {
+		a, b       float64
+		expected   float64
+		shouldFail bool
+	}{
+		{6, 2, 3.0, false},
+		{6, 0, 0.0, true},
 	}
-}
-func BenchmarkDivByZero(b *testing.B) {
-	c := Calculator{a: 7, b: 0}
+
 	for range b.N {
-		c.div()
+		for _, tt := range tests {
+
+			c := Calculator{a: tt.a, b: tt.b}
+			var _ float64
+			if tt.b == 0 {
+
+				if tt.shouldFail {
+
+					_ = 0.0
+				}
+			} else {
+
+				c.div()
+			}
+		}
 	}
 }
