@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// Myerror is a struct
 type Myerror struct {
 	today time.Time
 	day   string
