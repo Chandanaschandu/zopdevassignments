@@ -18,6 +18,7 @@ type Book struct {
 
 var books = make(map[int]Book)
 
+// GetBooks
 func GetBooks(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
@@ -32,6 +33,7 @@ func GetBooks(w http.ResponseWriter, r *http.Request) {
 	w.Write(json)
 }
 
+// GetBookByID
 func GetBookByID(w http.ResponseWriter, r *http.Request) {
 
 	path := r.URL.Path
@@ -64,6 +66,7 @@ func GetBookByID(w http.ResponseWriter, r *http.Request) {
 	w.Write(jsonData)
 }
 
+// AddBook
 func AddBook(w http.ResponseWriter, r *http.Request) {
 
 	body, err := io.ReadAll(r.Body)

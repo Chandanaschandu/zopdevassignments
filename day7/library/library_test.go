@@ -19,6 +19,7 @@ type testCase struct {
 	updateAuthor   string
 }
 
+// TestGetBooks
 func TestGetBooks(t *testing.T) {
 	tests := []testCase{
 		{
