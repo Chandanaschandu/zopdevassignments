@@ -5,6 +5,7 @@ import (
 	"math"
 )
 
+// ErrNegativeSqrt is a go tour excercise
 type ErrNegativeSqrt float64
 
 func Sqrt(x float64) (float64, error) {

@@ -5,6 +5,7 @@ import (
 	"io"
 )
 
+// MyReader struct
 type MyReader struct{}
 
 func (r MyReader) Read(p []byte) (n int, err error) {
@@ -15,7 +16,7 @@ func (r MyReader) Read(p []byte) (n int, err error) {
 	return len(p), nil
 }
 func main() {
-	//reader.Validate(MyReader{})
+
 	r := MyReader{}
 
 	buf := make([]byte, 10)
