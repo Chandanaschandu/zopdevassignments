@@ -89,7 +89,6 @@ func TestGetBooksByID(t *testing.T) {
 	}
 	for _, tt := range tests {
 		books = tt.books
-		//body := bytes.NewBuffer(tt.body)
 
 		req, _ := http.NewRequest(tt.method, tt.url, strings.NewReader(tt.body))
 		w := httptest.NewRecorder()
@@ -151,7 +150,7 @@ func TestAddBook(t *testing.T) {
 
 		if string(b) != tt.expectedBody {
 			t.Errorf("Expected %s, but got %s", tt.expectedBody, string(b))
-			//fmt.Println(strings.Contains(tt.expectedBody, string(b)))
+
 		}
 
 	}
