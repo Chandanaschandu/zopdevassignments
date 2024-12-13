@@ -226,6 +226,17 @@ func TestDeleteBooks(t *testing.T) {
 			expectedBody:   "Book not found\n",
 			url:            "/book/3",
 		},
+		{
+			des: "Book not exist",
+			books: map[int]Book{
+				1: {BookId: 1, Title: "Go", Author: "ABC"},
+				2: {BookId: 2, Title: "Java", Author: "MNO"},
+			},
+			method:         http.MethodDelete,
+			expectedStatus: http.StatusNotFound,
+			expectedBody:   "Book not found\n",
+			url:            "/book/6",
+		},
 	}
 
 	for _, tt := range tests {
