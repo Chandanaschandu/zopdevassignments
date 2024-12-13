@@ -17,7 +17,7 @@ func TestAreaRectangle(t *testing.T) {
 	for _, test := range tests {
 		res := AreaRectangle(test.l, test.b)
 		if res != test.output {
-			t.Errorf("The length %f  and breadth %f  area is %f:", test.l, test.b, test.output)
+			t.Errorf("The res %f  and  expected is %f:", res, test.output)
 		}
 	}
 
@@ -34,7 +34,7 @@ func TestPeriRectangle(t *testing.T) {
 	for _, v := range tests1 {
 		res1 := PeriRectangle(v.a, v.b)
 		if res1 != v.output1 {
-			t.Errorf("For length %f and breadth %f perimeter of rectangle is :%f", v.a, v.b, v.output1)
+			t.Errorf("your res is %f and expected  perimeter of rectangle is :%f", res1, v.output1)
 		}
 	}
 
