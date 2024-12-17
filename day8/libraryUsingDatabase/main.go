@@ -13,11 +13,8 @@ import (
 )
 
 const (
-	//ErrorInvalidParam       = "Invalid parameters"
-	//ErrorMissingParam       = "Missing parameters"
 	ErrorEntityNotFound     = "Entity not found"
 	ErrorEntityAlreadyExist = "Entity already exists"
-	//ErrorInvalidRoute       = "Invalid route"
 )
 
 type DBBookStore struct {
@@ -35,12 +32,6 @@ type Book struct {
 	Author string `json:"author"`
 }
 
-func (store *DBBookStore) Close() {
-	// Here we call Close() on the pointer to db
-	store.db.Close()
-}
-
-// var books = make(map[int]Book)
 type BookStore interface {
 	GetBooks(w http.ResponseWriter, r *http.Request)
 	GetBookByID(w http.ResponseWriter, r *http.Request)
@@ -52,9 +43,13 @@ type BookStore interface {
 func (store *DBBookStore) GetBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	rows, _ := store.db.Query("SELECT id, title, author FROM books")
+	rows, err := store.db.Query("SELECT id, title, author FROM Book")
+	if err != nil {
+		log.Printf("error :%v", err)
+		return
+	}
 
-	var books []Book
+	var books = make([]Book, 0)
 	for rows.Next() {
 		var book Book
 		_ = rows.Scan(&book.BookId, &book.Title, &book.Author)
@@ -76,7 +71,7 @@ func (store *DBBookStore) GetBooks(w http.ResponseWriter, r *http.Request) {
 }
 
 func (store *DBBookStore) GetBookByID(w http.ResponseWriter, r *http.Request) {
-	// Extract the book ID from the URL path
+
 	path := r.URL.Path
 	parts := strings.Split(path, "/")
 	if len(parts) < 3 {
@@ -84,7 +79,6 @@ func (store *DBBookStore) GetBookByID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	
 	idStr := parts[len(parts)-1]
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
@@ -92,17 +86,13 @@ func (store *DBBookStore) GetBookByID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	
 	var book Book
-	query := "SELECT id, title, author FROM Book WHERE id = ?"
+	query := "SELECT BookId, Title, Author FROM Book WHERE BookId= ?"
 
-	
 	log.Printf("Executing query: %s", query)
 
-	
 	err = store.db.QueryRow(query, id).Scan(&book.BookId, &book.Title, &book.Author)
 
-	
 	if err == sql.ErrNoRows {
 		http.Error(w, "Book not found", http.StatusNotFound)
 		return
@@ -112,7 +102,6 @@ func (store *DBBookStore) GetBookByID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	
 	jsonData, err := json.Marshal(book)
 	if err != nil {
 		log.Printf("Error marshalling book: %v", err)
@@ -120,7 +109,6 @@ func (store *DBBookStore) GetBookByID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(jsonData)
 }
@@ -131,9 +119,8 @@ func (store *DBBookStore) AddBook(w http.ResponseWriter, r *http.Request) {
 	var newBook Book
 	_ = json.Unmarshal(body, &newBook)
 
-	// Check if book already exists
 	var exists bool
-	_ = store.db.QueryRow("SELECT EXISTS(SELECT 1 FROM Book WHERE title = ? AND author = ?)", newBook.Title, newBook.Author).Scan(&exists)
+	_ = store.db.QueryRow("SELECT EXISTS(SELECT 1 FROM Book WHERE Title = ? AND Author = ?)", newBook.Title, newBook.Author).Scan(&exists)
 
 	if exists {
 		http.Error(w, ErrorEntityAlreadyExist, http.StatusBadRequest)
@@ -141,7 +128,7 @@ func (store *DBBookStore) AddBook(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Insert the new book
-	result, _ := store.db.Exec("INSERT INTO Book (title, author) VALUES (?, ?)", newBook.Title, newBook.Author)
+	result, _ := store.db.Exec("INSERT INTO Book (Title, Author) VALUES (?, ?)", newBook.Title, newBook.Author)
 	id, _ := result.LastInsertId()
 	newBook.BookId = int(id)
 
@@ -156,7 +143,7 @@ func (store *DBBookStore) UpdateBook(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(idStr)
 
 	var book Book
-	_ = store.db.QueryRow("SELECT id, title, author FROM Book WHERE id = ?", id).Scan(&book.BookId, &book.Title, &book.Author)
+	_ = store.db.QueryRow("SELECT BookId, Title, Author FROM Book WHERE BookId = ?", id).Scan(&book.BookId, &book.Title, &book.Author)
 
 	body, _ := io.ReadAll(r.Body)
 
@@ -170,7 +157,7 @@ func (store *DBBookStore) UpdateBook(w http.ResponseWriter, r *http.Request) {
 		book.Title = updateBookData.Title
 	}
 
-	_, _ = store.db.Exec("UPDATE Book SET title = ?, author = ? WHERE id = ?", book.Title, book.Author, book.BookId)
+	_, _ = store.db.Exec("UPDATE Book SET Title = ?, Author = ? WHERE BookId= ?", book.Title, book.Author, book.BookId)
 
 	jsonData, _ := json.Marshal(book)
 	w.Write(jsonData)
@@ -182,7 +169,7 @@ func (store *DBBookStore) DeleteBook(w http.ResponseWriter, r *http.Request) {
 	idStr := parts[len(parts)-1]
 	id, _ := strconv.Atoi(idStr)
 
-	_, _ = store.db.Exec("DELETE FROM Book WHERE id = ?", id)
+	_, _ = store.db.Exec("DELETE FROM Book WHERE BookId= ?", id)
 
 	response := map[string]string{
 		"message": "Book successfully deleted",
@@ -196,19 +183,19 @@ func main() {
 	// Open a connection to the database
 	db, err := sql.Open("mysql", "root:password@tcp/org_db")
 	if err != nil {
-		panic(err)
+		fmt.Println("Error ", err)
 	}
 
-	// Test the connection
 	err = db.Ping()
 	if err != nil {
+
 		log.Fatalf("Error connecting to the database: %v", err)
 	}
 
 	fmt.Println("Successfully connected to the MySQL database!")
 	store := NewStore(db)
 
-	http.HandleFunc("/book/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/Book/", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
 			path := r.URL.Path
