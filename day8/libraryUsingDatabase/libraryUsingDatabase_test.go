@@ -203,8 +203,8 @@ func Test_GetsBooks(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Expected no error, but got: %v", err)
 	}
-
 }
+
 func TestGetBookByID_Success(t *testing.T) {
 
 	mockRows := sqlmock.NewRows([]string{"BookId", "Title", "Author"}).
@@ -259,6 +259,7 @@ func TestGetBookByID_fail(t *testing.T) {
 		t.Errorf("expected error message to contain 'no book found with ID 2', got: %v", err)
 	}
 }
+
 func Test_AddBooks(t *testing.T) {
 
 	db, mock, err := sqlmock.New()
@@ -291,6 +292,7 @@ func Test_AddBooks(t *testing.T) {
 
 }
 
+
 func TestAddBook_Success(t *testing.T) {
 
 	db, mock, err := sqlmock.New()
@@ -306,7 +308,7 @@ func TestAddBook_Success(t *testing.T) {
 
 	mock.ExpectExec(`INSERT INTO Book \(Title, Author\) VALUES \(\?, \?\)`).
 		WithArgs(book.Title, book.Author).
-		WillReturnResult(sqlmock.NewResult(1, 1)) // LastInsertId = 1
+		WillReturnResult(sqlmock.NewResult(1, 1)) 
 
 	err = AddBook(db, book)
 
@@ -317,7 +319,9 @@ func TestAddBook_Success(t *testing.T) {
 	if err := mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unmet expectations: %v", err)
 	}
+	
 }
+
 func TestAddBook_fail(t *testing.T) {
 
 	db, mock, err := sqlmock.New()
@@ -344,7 +348,9 @@ func TestAddBook_fail(t *testing.T) {
 	if !strings.Contains(err.Error(), "SQL execution error") {
 		t.Errorf("expected error message to contain 'SQL execution error', got: %v", err)
 	}
+	
 }
+
 
 func TestDeleteBook_Success(t *testing.T) {
 
@@ -363,6 +369,7 @@ func TestDeleteBook_Success(t *testing.T) {
 	if err != nil {
 		t.Errorf("expected no error, got: %v", err)
 	}
+	
 }
 
 func TestDeleteBook_fail(t *testing.T) {
@@ -386,9 +393,10 @@ func TestDeleteBook_fail(t *testing.T) {
 	if !strings.Contains(err.Error(), "SQL execution error") {
 		t.Errorf("expected error message to contain 'SQL execution error', got: %v", err)
 	}
+	
 }
 
-func TestUpdateBooks(t *testing.T) {
+func TestUpdateBooksSuccess(t *testing.T) {
 
 	db, mock, err := sqlmock.New()
 	if err != nil {
@@ -409,6 +417,7 @@ func TestUpdateBooks(t *testing.T) {
 	if err != nil {
 		t.Errorf("Expected output is different: %v", err)
 	}
+	
 }
 
 func TestUpdateBookFail(t *testing.T) {
@@ -430,4 +439,5 @@ func TestUpdateBookFail(t *testing.T) {
 	if !strings.Contains(err.Error(), "SQL execution error") {
 		t.Errorf("expected error message to contain 'SQL execution error', got: %v", err)
 	}
+	
 }
