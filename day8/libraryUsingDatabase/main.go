@@ -270,15 +270,18 @@ func GetsBooks(db *sql.DB) ([]Book, error) {
 
 func GetBookByID(db *sql.DB, BookId int64) (Book, error) {
 	var book Book
+	
 	query := "SELECT BookId, Title, Author FROM Book WHERE BookId = ?"
 
 	err := db.QueryRow(query, BookId).Scan(&book.BookId, &book.Title, &book.Author)
+	
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return Book{}, fmt.Errorf("no book found with ID %d", BookId)
 		}
 		return Book{}, fmt.Errorf("error querying book: %v", err)
 	}
+	
 	return book, nil
 }
 
@@ -299,7 +302,9 @@ func AddBook(db *sql.DB, book *Book) error {
 	book.BookId = int(lastInsertID)
 	return nil
 }
+
 func DeleteBook(db *sql.DB, BookId int) error {
+	
 	query := "DELETE FROM Book WHERE BookId = ?"
 	result, err := db.Exec(query, BookId)
 	if err != nil {
@@ -317,7 +322,9 @@ func DeleteBook(db *sql.DB, BookId int) error {
 
 	return nil
 }
+
 func UpdateBooks(db *sql.DB, BookId int, Author string) error {
+	
 	query := "UPDATE Book SET Author = ? WHERE BookId = ?"
 	res, err := db.Exec(query, Author, BookId)
 	if err != nil {
