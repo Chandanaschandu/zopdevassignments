@@ -27,14 +27,16 @@ func main() {
 
 	fmt.Println("Successfully connected to the MySQL database!")
 
-	st := store.UserStore(db)
-	ser := service.NewServices(st)
+	store := store.NewUserStore(db)
+	ser := service.NewServices(&store)
 	userHandler := handler.NewUserHandler(ser)
 
 	r := mux.NewRouter()
 
-	r.HandleFunc("/user/{name}", userHandler.GetUserByName).Methods("GET", "PUT", "DELETE")
-	r.HandleFunc("/user", userHandler.AddUsers).Methods("POST")
+	r.HandleFunc("/user/{name}", userHandler.GetUserByName).Methods(http.MethodGet)
+	r.HandleFunc("/user/{name}", userHandler.DeleteUsers).Methods(http.MethodDelete)
+	r.HandleFunc("/user/{name}", userHandler.UpdateUserEmail).Methods(http.MethodPut)
+	r.HandleFunc("/user", userHandler.AddUsers).Methods(http.MethodPost)
 
 	fmt.Println("Server started on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", r))
