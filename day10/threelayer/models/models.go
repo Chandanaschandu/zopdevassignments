@@ -26,7 +26,7 @@ func (u *Users) Validate() error {
 	isPhoneValid := phone.MatchString(u.Phonenumber)
 
 	if !isPhoneValid {
-		return fmt.Errorf("Invalid email id")
+		return fmt.Errorf("Invalid Phone number")
 	}
 
 	return nil
