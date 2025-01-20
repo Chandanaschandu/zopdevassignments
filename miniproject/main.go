@@ -6,12 +6,14 @@ import (
 	"gofr.dev/pkg/gofr/datasource/scylladb"
 )
 
+// Vote struct
 type Vote struct {
 	PollID gocql.UUID `json:"poll_id"`
 	VoteID gocql.UUID `json:"vote_id"`
 	Option string     `json:"option"`
 }
 
+// Poll struct
 type Poll struct {
 	ID       gocql.UUID `json:"id"`
 	Question string     `json:"question"`
